@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>WAVE</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="WAVE">
+<meta name="theme-color" content="#0a0e17">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#0a0e17;--sf:#111827;--sf2:#1a2235;--bd:#1e293b;--bd2:#334155;--tx:#e2e8f0;--txd:#64748b;--txm:#475569;--red:#ef4444;--rdm:#991b1b;--rg:rgba(239,68,68,.15);--grn:#22c55e;--gnd:#166534;--gg:rgba(34,197,94,.15);--blu:#3b82f6;--bld:#1e3a5f;--bg2:rgba(59,130,246,.12);--amb:#f59e0b;--amd:#78350f;--ag:rgba(245,158,11,.12);--pur:#a855f7;--fm:'JetBrains Mono',monospace;--fs:'Noto Sans KR',sans-serif}
+html,body{height:100%;background:var(--bg);color:var(--tx);font-family:var(--fs);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{display:flex;flex-direction:column;min-height:100dvh}
+.m{font-family:var(--fm)}
+.fi{animation:fi .35s ease-out}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cp{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+
+.sc{flex:1;display:flex;flex-direction:column;padding:16px;padding-top:max(16px,env(safe-area-inset-top));padding-bottom:max(16px,env(safe-area-inset-bottom));max-width:460px;width:100%;margin:0 auto}
+
+.sb{display:flex;gap:5px;margin-bottom:14px}
+.sc2{flex:1;background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:9px 6px;text-align:center}
+.sl{font-size:9px;color:var(--txd);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+.sv{font-family:var(--fm);font-size:16px;font-weight:800}
+
+.fc{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:14px;margin-bottom:10px}
+.fh{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ft{font-size:10px;color:var(--txd);font-weight:600;letter-spacing:.3px}
+.fr{background:none;border:none;color:var(--txd);cursor:pointer;font-size:13px;padding:3px 6px;border-radius:5px}
+.fv{font-family:var(--fm);font-size:40px;font-weight:800;line-height:1}
+.fl{font-size:11px;margin-top:3px;font-weight:600}
+.fb{height:4px;border-radius:2px;background:var(--sf2);margin-top:8px;overflow:hidden}
+.ff{height:100%;border-radius:2px;transition:width .5s}
+.fw{font-size:10px;margin-top:6px;padding:6px 9px;border-radius:7px;background:var(--sf2);color:var(--txd);line-height:1.4}
+
+.lm{background:linear-gradient(135deg,var(--rdm),#1a0a0a);border:1px solid rgba(239,68,68,.2);border-radius:13px;padding:14px;margin-bottom:10px}
+.lm h3{font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+.la{font-family:var(--fm);font-size:24px;font-weight:800;color:var(--red)}
+.ls{font-size:10px;color:rgba(239,68,68,.55);margin-top:3px;line-height:1.4}
+
+.cb{width:100%;padding:16px;border:none;border-radius:13px;font-family:var(--fs);font-size:15px;font-weight:900;cursor:pointer;transition:all .12s;margin-bottom:6px}
+.cp{background:linear-gradient(135deg,#1e3a5f,#1e40af);color:#fff;border:1px solid rgba(59,130,246,.3)}
+.cp:active{transform:scale(.97)}
+.cp:disabled{opacity:.3;cursor:not-allowed;transform:none}
+.cd{background:linear-gradient(135deg,var(--rdm),#7f1d1d);color:#fff;border:1px solid rgba(239,68,68,.3)}
+.cg{background:linear-gradient(135deg,var(--gnd),#15803d);color:#fff;border:1px solid rgba(34,197,94,.3)}
+.cgh{background:var(--sf);color:var(--txd);border:1px solid var(--bd)}
+.csm{padding:13px;font-size:13px;font-weight:700;border-radius:11px}
+
+.tc{text-align:center;padding:28px 14px}
+.td{font-family:var(--fm);font-size:58px;font-weight:800;color:var(--amb);animation:cp 2s ease-in-out infinite;letter-spacing:-2px}
+.tl{font-size:11px;color:var(--txd);margin-top:5px}
+.te{font-size:9px;color:var(--txm);margin-top:10px;padding:7px 12px;background:var(--sf);border-radius:9px;display:inline-block}
+
+.mc{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:14px;margin-top:10px}
+.mt{font-size:9px;color:var(--amb);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.ms{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd);font-size:11px}
+.ms:last-child{border-bottom:none}
+.ms .l{color:var(--txd)}
+.ms .v{font-family:var(--fm);font-weight:700}
+
+.fs{margin-bottom:12px}
+.fl2{font-size:9px;color:var(--txd);text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px;font-weight:600}
+.tr{display:flex;gap:4px;flex-wrap:wrap}
+.tb{flex:1;min-width:calc(33% - 3px);padding:10px 5px;border:1px solid var(--bd);border-radius:9px;background:var(--sf);color:var(--txd);font-family:var(--fs);font-size:11px;font-weight:600;cursor:pointer;text-align:center;transition:all .1s}
+.tb.a{border-color:var(--blu);background:var(--bld);color:#fff}
+.tb.da{border-color:var(--red);background:var(--rg);color:var(--red)}
+.cr{display:flex;align-items:center;gap:9px;padding:11px 12px;background:var(--sf);border:1px solid var(--bd);border-radius:9px;cursor:pointer;margin-bottom:4px}
+.cr input{width:17px;height:17px;accent-color:var(--grn);cursor:pointer}
+.cr span{font-size:12px;font-weight:600}
+.cr.ck{border-color:var(--grn);background:var(--gg)}
+.mi{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:9px;background:var(--sf);color:var(--tx);font-family:var(--fs);font-size:12px;resize:none;outline:none}
+.mi:focus{border-color:var(--blu)}
+.mi::placeholder{color:var(--txm)}
+
+.pc{background:linear-gradient(135deg,var(--sf),var(--sf2));border:1px solid var(--bd);border-radius:13px;padding:18px;margin-bottom:10px}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.pcn{font-size:20px;font-weight:900}
+.pdr{font-size:12px;font-weight:700;padding:3px 9px;border-radius:7px}
+.pdr.lo{background:var(--gg);color:var(--grn);border:1px solid rgba(34,197,94,.3)}
+.pdr.sh{background:var(--rg);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.el{font-family:var(--fm);font-size:30px;font-weight:800;text-align:center;margin:12px 0}
+.rg{height:6px;border-radius:3px;background:var(--sf2);overflow:hidden;margin-bottom:5px}
+.rfl{height:100%;border-radius:3px;transition:width .4s,background .4s}
+.rl{font-size:10px;text-align:center;font-weight:700}
+.rd{padding:9px 12px;background:var(--sf2);border-radius:9px;margin-top:9px}
+.rd .tg{font-size:8px;color:var(--blu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+.rd .tx{font-size:11px;color:var(--tx);line-height:1.4}
+.pi{width:100%;padding:11px 12px;border:1px solid var(--bd);border-radius:9px;background:var(--sf);color:var(--tx);font-family:var(--fm);font-size:16px;font-weight:700;text-align:center;outline:none}
+.pi:focus{border-color:var(--blu)}
+.pi::placeholder{color:var(--txm);font-weight:400;font-size:13px}
+.eb{display:flex;gap:5px;margin-top:5px}
+
+.co{position:fixed;inset:0;background:rgba(10,14,23,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100;padding:20px}
+
+.lt{margin-top:auto;padding-top:10px}
+.lb{width:100%;padding:8px;background:none;border:1px solid var(--bd);border-radius:9px;color:var(--txm);font-size:10px;cursor:pointer;font-family:var(--fs)}
+.lp{max-height:160px;overflow-y:auto;margin-top:5px;border:1px solid var(--bd);border-radius:9px}
+.le{padding:6px 9px;border-bottom:1px solid var(--bd);font-size:9px;display:flex;gap:5px}
+.le:last-child{border-bottom:none}
+.lti{color:var(--txm);font-family:var(--fm);white-space:nowrap}
+.lac{color:var(--txd);font-weight:600}
+.lde{color:var(--txm)}
+
+.vr{text-align:center;font-size:8px;color:var(--txm);padding:8px 0;margin-top:6px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script>if('serviceWorker' in navigator) window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(()=>{})})</script>
+<script type="text/babel">
+const{useState,useEffect,useCallback}=React;
+const SK='wave2',FNG='https://api.alternative.me/fng/?limit=1&format=json';
+const AVG_LOSS=350000;
+const ESC=[{m:5,l:'1회차: 5분'},{m:15,l:'2회차: 15분'},{m:60,l:'3회차: 60분'}];
+const LCD=6*36e5,LCDC=24*36e5;
+const RS=[{id:'trend',l:'추세',i:'📈'},{id:'bounce',l:'반등',i:'🔄'},{id:'news',l:'뉴스',i:'📰'},{id:'revenge',l:'감정복수',i:'😤',d:1},{id:'impulse',l:'그냥충동',i:'⚡',d:1}];
+
+const ld=()=>{try{return JSON.parse(localStorage.getItem(SK))}catch{return null}};
+const sv=d=>{try{localStorage.setItem(SK,JSON.stringify(d))}catch{}};
+const df=()=>({ac:0,as:0,ast:0,lad:null,tic:0,td:new Date().toISOString().slice(0,10),cu:null,cr:null,tr:[],cl:0,sess:null,log:[]});
+const rd=s=>{const t=new Date().toISOString().slice(0,10);if(s.td!==t){const y=new Date(Date.now()-864e5).toISOString().slice(0,10);return{...s,td:t,tic:0,as:(s.lad===y||s.lad===t)?s.as:0}}return s};
+
+function hr(c,lv,mn){let l;if(c==='BTC'){if(lv>=10)l={w:30,d:60,e:90};else if(lv>=5)l={w:45,d:90,e:120};else l={w:60,d:120,e:180}}else{if(lv>=3)l={w:20,d:40,e:60};else l={w:30,d:60,e:90}}const p=Math.min(100,(mn/l.e)*100);let t='SAFE';if(mn>=l.e)t='EXECUTE';else if(mn>=l.d)t='DANGER';else if(mn>=l.w)t='WARNING';return{t,p}}
+
+const ft=ms=>{if(ms<=0)return'0:00';const t=Math.ceil(ms/1e3),h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60;if(h>0)return`${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;return`${m}:${String(s).padStart(2,'0')}`};
+const fm=n=>{if(n>=1e7)return`₩${(n/1e7).toFixed(1)}천만`;if(n>=1e4)return`₩${Math.round(n/1e4)}만`;return`₩${n.toLocaleString()}`};
+
+function App(){
+const[st,sst]=useState(()=>{const s=ld();return s?rd(s):df()});
+const[sc,ssc]=useState(()=>{const s=ld();if(s?.sess)return'w';if(s?.cu&&Date.now()<s.cu)return'cd';return'g'});
+const[tk,stk]=useState(0);
+const[fg,sfg]=useState(null);
+const[fgl,sfgl]=useState(false);
+const[te,ste]=useState(null);
+const[sa,ssa]=useState(false);
+const[pi,spi]=useState('');
+const[lo,slo]=useState(false);
+const[ec,sec]=useState(null);
+const[ed,sed]=useState(null);
+const[er,ser]=useState(null);
+const[em,sem]=useState('');
+const[el,sel]=useState('');
+const[esl,sesl]=useState(false);
+const[etp,setp]=useState(false);
+
+useEffect(()=>{sv(st)},[st]);
+useEffect(()=>{const t=setInterval(()=>stk(k=>k+1),1e3);return()=>clearInterval(t)},[]);
+useEffect(()=>{if(st.cu&&Date.now()>=st.cu&&sc==='cd'){sst(s=>({...s,cu:null,cr:null}));ssc('g')}},[tk]);
+const tdn=te&&Date.now()>=te;
+
+const ffg=useCallback(async()=>{sfgl(true);try{const r=await fetch(FNG);const j=await r.json();const d=j?.data?.[0];if(d)sfg({v:Number(d.value),l:d.value_classification,at:new Date().toISOString()})}catch(e){console.error(e)}sfgl(false)},[]);
+useEffect(()=>{if(!fg)ffg()},[]);
+
+const al=(a,d)=>sst(s=>({...s,log:[...s.log,{t:new Date().toISOString(),a,d}].slice(-200)}));
+
+const fr=fg?(fg.v<=25?{l:'극단적 공포',c:'var(--red)',w:'바닥 근처. 신중한 진입.'}:fg.v<=45?{l:'공포',c:'var(--amb)',w:'매수 기회 탐색 구간.'}:fg.v<=55?{l:'중립',c:'var(--txd)',w:'방향성 불명확.'}:fg.v<=75?{l:'탐욕',c:'var(--grn)',w:'과열 주의. 익절 고려.'}:{l:'극단적 탐욕',c:'var(--pur)',w:'고점 가능성. 진입 자제.'}):null;
+
+const ls=st.tr.filter(t=>t.p<0).slice(-5);
+const lt=ls.reduce((s,t)=>s+Math.abs(t.p),0);
+const et=st.tr.filter(t=>t.r==='revenge'||t.r==='impulse');
+const ew=et.length>0?Math.round((et.filter(t=>t.p>0).length/et.length)*100):null;
+
+const hImp=()=>{if(st.cu&&Date.now()<st.cu){ssc('cd');return}const c=st.tic;const i=Math.min(c,ESC.length-1);const w=ESC[i].m;sst(s=>({...s,tic:s.tic+1}));ste(Date.now()+w*6e4);ssc('tm');al('IMPULSE',`대기 ${w}분 (${c+1}회차)`)};
+const hAv=()=>{const t=new Date().toISOString().slice(0,10);sst(s=>({...s,ac:s.ac+1,as:s.as+1,ast:s.ast+AVG_LOSS,lad:t}));al('AVOID',`충동 회피 +${fm(AVG_LOSS)}`);ssa(true);ste(null)};
+const hSW=()=>{sec(null);sed(null);ser(null);sem('');sel('');sesl(false);setp(false);ssc('en')};
+const hEn=()=>{const lv=parseInt(el)||1;const ss={id:Date.now(),c:ec,d:ed,r:er,m:em,lv,ea:Date.now(),fg:fg?.v||null};sst(s=>({...s,sess:ss}));al('ENTRY',`${ec} ${ed} x${lv} [${er}]`);spi('');ssc('w')};
+const hEx=rn=>{const p=parseFloat(pi)||0;const ss=st.sess;if(!ss)return;const tr={ts:new Date().toISOString(),c:ss.c,d:ss.d,r:ss.r,lv:ss.lv,p,er:rn,dm:Math.floor((Date.now()-ss.ea)/6e4)};let nc=p<0?st.cl+1:0;let cu=null,cr=null;if(p<0){if(nc>=2){cu=Date.now()+LCDC;cr=`연속 ${nc}회 손실 → 24시간`}else{cu=Date.now()+LCD;cr='손실 → 6시간 쿨다운'}}if(p<=-30){cu=Date.now()+LCDC;cr=`큰 손실 (${p}%) → 24시간`}sst(s=>({...s,sess:null,tr:[...s.tr,tr],cl:nc,cu,cr}));al('EXIT',`${p>=0?'+':''}${p}% [${rn}]`);ssc(cu?'cd':'g')};
+
+// ── AVOID SUCCESS ──
+if(sa)return(
+<div className="sc fi"><div style={{flex:1,display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
+<div style={{fontSize:52,marginBottom:12}}>🛡️</div>
+<div style={{fontSize:20,fontWeight:900,color:'var(--grn)',marginBottom:4}}>충동 회피 성공</div>
+<div style={{fontSize:12,color:'var(--txd)',margin:'4px 0'}}>추정 손실 방어</div>
+<div className="m" style={{fontSize:28,fontWeight:800,color:'var(--grn)',margin:'12px 0'}}>+{fm(AVG_LOSS)}</div>
+<div style={{fontSize:12,color:'var(--txd)'}}>연속 {st.as}일 · 총 {st.ac}회 · 누적 {fm(st.ast)}</div>
+<button className="cb cp" style={{marginTop:24}} onClick={()=>{ssa(false);ssc('g')}}>확인</button>
+</div></div>);
+
+// ── COOLDOWN ──
+if(sc==='cd'){const lf=st.cu?Math.max(0,st.cu-Date.now()):0;return(
+<div className="co fi">
+<div style={{fontSize:52,marginBottom:12}}>🔒</div>
+<div className="m" style={{fontSize:48,fontWeight:800,color:'var(--red)',animation:'cp 2s ease-in-out infinite'}}>{ft(lf)}</div>
+<div style={{fontSize:12,color:'var(--txd)',marginTop:8,textAlign:'center',maxWidth:280,lineHeight:1.5}}>{st.cr||'쿨다운 활성'}</div>
+<div style={{marginTop:18,padding:'12px 18px',background:'var(--sf)',borderRadius:11,border:'1px solid var(--bd)',width:'100%',maxWidth:300}}>
+<div style={{display:'flex',justifyContent:'space-between',fontSize:11,marginBottom:5}}><span style={{color:'var(--txd)'}}>연속 손실</span><span className="m" style={{color:'var(--red)',fontWeight:700}}>{st.cl}회</span></div>
+<div style={{display:'flex',justifyContent:'space-between',fontSize:11}}><span style={{color:'var(--txd)'}}>누적 방어</span><span className="m" style={{color:'var(--grn)',fontWeight:700}}>{fm(st.ast)}</span></div>
+</div></div>)}
+
+// ── TIMER ──
+if(sc==='tm'){const lf=te?Math.max(0,te-Date.now()):0;const ei=Math.min(st.tic-1,ESC.length-1);return(
+<div className="sc fi">
+<div className="tc">
+<div style={{fontSize:11,color:'var(--txd)',marginBottom:5}}>매매 충동 감지</div>
+<div className="td">{lf>0?ft(lf):'0:00'}</div>
+<div className="tl">{lf>0?'대기 후 다시 판단합니다':'대기 완료. 판단하세요.'}</div>
+<div className="te">{ESC[ei]?.l} · 오늘 {st.tic}회</div>
+</div>
+<div className="mc">
+<div className="mt">🪞 과거의 나</div>
+{ls.length>0&&<div className="ms"><span className="l">최근 {ls.length}건 손실 합계</span><span className="v" style={{color:'var(--red)'}}>-{lt}%</span></div>}
+{ew!==null&&<div className="ms"><span className="l">감정/충동 매매 승률</span><span className="v" style={{color:ew<40?'var(--red)':'var(--amb)'}}>{ew}%</span></div>}
+<div className="ms"><span className="l">충동 회피 방어</span><span className="v" style={{color:'var(--grn)'}}>{fm(st.ast)}</span></div>
+<div className="ms"><span className="l">연속 손실</span><span className="v" style={{color:st.cl>0?'var(--red)':'var(--grn)'}}>{st.cl}회</span></div>
+{fg&&<div className="ms"><span className="l">Fear & Greed</span><span className="v" style={{color:fr?.c}}>{fg.v} ({fr?.l})</span></div>}
+</div>
+<div style={{marginTop:'auto',paddingTop:14,display:'flex',flexDirection:'column',gap:5}}>
+{tdn&&<button className="cb cp" onClick={hSW}>아직도 하겠다</button>}
+<button className="cb cg" onClick={hAv}>🛡️ 안 한다{!tdn?` — 회피 시 +${fm(AVG_LOSS)}`:''}</button>
+</div></div>)}
+
+// ── ENTRY ──
+if(sc==='en'){const lv=parseInt(el)||0;const lw=fg&&fg.v>=75&&lv>3;const ok=ec&&ed&&er&&esl&&etp&&lv>0;return(
+<div className="sc fi" style={{overflowY:'auto'}}>
+<button style={{background:'none',border:'none',color:'var(--txd)',fontSize:12,cursor:'pointer',padding:'3px 0',marginBottom:10,textAlign:'left'}} onClick={()=>ssc('g')}>← 취소</button>
+<h2 style={{fontSize:16,fontWeight:900,marginBottom:14}}>진입 게이트</h2>
+<div className="fs"><div className="fl2">코인</div><div className="tr"><button className={`tb ${ec==='BTC'?'a':''}`} onClick={()=>sec('BTC')}>BTC</button><button className={`tb ${ec==='ALT'?'a':''}`} onClick={()=>sec('ALT')}>ALT</button></div></div>
+<div className="fs"><div className="fl2">방향</div><div className="tr"><button className={`tb ${ed==='LONG'?'a':''}`} onClick={()=>sed('LONG')}>LONG</button><button className={`tb ${ed==='SHORT'?'a':''}`} onClick={()=>sed('SHORT')}>SHORT</button></div></div>
+<div className="fs"><div className="fl2">레버리지</div><input type="number" className="mi m" style={{textAlign:'center',fontSize:15,fontWeight:700}} value={el} onChange={e=>sel(e.target.value)} placeholder={ec==='BTC'?'1~15':'1~5'} min="1" max={ec==='BTC'?15:5}/>{lw&&<div style={{padding:'7px 10px',background:'var(--ag)',border:'1px solid rgba(245,158,11,.3)',borderRadius:9,fontSize:10,color:'var(--amb)',marginTop:5,fontWeight:600}}>⚠️ FGI {fg.v} (극단적 탐욕) — 3x 이하 권장</div>}</div>
+<div className="fs"><div className="fl2">진입 근거</div><div className="tr">{RS.map(r=><button key={r.id} className={`tb ${er===r.id?(r.d?'da':'a'):''}`} onClick={()=>ser(r.id)}>{r.i} {r.l}</button>)}</div>
+{(er==='revenge'||er==='impulse')&&<div style={{marginTop:5,padding:'7px 10px',background:'var(--rg)',border:'1px solid rgba(239,68,68,.3)',borderRadius:9,fontSize:10,color:'var(--red)',fontWeight:600}}>⚠️ {er==='revenge'?'복수 매매':'충동 매매'} 인지 중{ew!==null&&` · 과거 승률: ${ew}%`}</div>}</div>
+<div className="fs"><div className="fl2">메모 (선택)</div><textarea className="mi" rows="2" value={em} onChange={e=>sem(e.target.value)} placeholder="진입 근거를 짧게"/></div>
+<div className="fs"><div className="fl2">리스크 확인</div>
+<label className={`cr ${esl?'ck':''}`} onClick={()=>sesl(!esl)}><input type="checkbox" checked={esl} readOnly/><span>손절가(SL) 설정 완료</span></label>
+<label className={`cr ${etp?'ck':''}`} onClick={()=>setp(!etp)}><input type="checkbox" checked={etp} readOnly/><span>익절가(TP) 설정 완료</span></label>
+</div>
+<button className={`cb ${ok?'cp':'cgh'}`} disabled={!ok} onClick={hEn}>진입 허가</button>
+</div>)}
+
+// ── WATCHTOWER ──
+if(sc==='w'&&st.sess){const s=st.sess;const e=Math.floor((Date.now()-s.ea)/1e3);const mn=Math.floor(e/60),se=e%60;const rk=hr(s.c,s.lv,mn);const tc={SAFE:'var(--grn)',WARNING:'var(--amb)',DANGER:'#f97316',EXECUTE:'var(--red)'};const rc=RS.find(r=>r.id===s.r);return(
+<div className="sc fi">
+<div className="pc"><div className="ph"><span className="pcn">{s.c}</span><span className={`pdr ${s.d==='LONG'?'lo':'sh'}`}>{s.d} x{s.lv}</span></div>
+<div className="el">{String(mn).padStart(2,'0')}:{String(se).padStart(2,'0')}</div>
+<div className="rg"><div className="rfl" style={{width:`${rk.p}%`,background:tc[rk.t]}}/></div>
+<div className="rl" style={{color:tc[rk.t]}}>{rk.t}</div>
+{rk.t==='EXECUTE'&&<div style={{marginTop:8,padding:9,background:'var(--rg)',border:'1px solid rgba(239,68,68,.3)',borderRadius:9,fontSize:11,color:'var(--red)',fontWeight:700,textAlign:'center'}}>⚠️ 홀딩 시간 초과 — 즉시 청산 고려</div>}
+</div>
+<div className="rd"><div className="tg">진입 근거</div><div className="tx">{rc?.i} {rc?.l}{s.m&&` — ${s.m}`}</div></div>
+{fg&&<div style={{marginTop:7,display:'flex',justifyContent:'space-between',padding:'7px 10px',background:'var(--sf)',borderRadius:9,border:'1px solid var(--bd)',fontSize:10}}><span style={{color:'var(--txd)'}}>진입 시 FGI</span><span className="m" style={{color:fr?.c,fontWeight:700}}>{s.fg||'—'}</span></div>}
+<div style={{marginTop:12}}><div className="fl2">청산 PnL (%)</div><input type="number" className="pi" value={pi} onChange={e=>spi(e.target.value)} placeholder="예: 10 또는 -5"/>
+<div className="eb"><button className="cb cg csm" style={{flex:1}} onClick={()=>hEx('tp')} disabled={!pi}>익절</button><button className="cb cd csm" style={{flex:1}} onClick={()=>hEx('sl')} disabled={!pi}>손절</button></div>
+</div></div>)}
+
+// ── GATE ──
+return(
+<div className="sc fi">
+<div className="sb">
+<div className="sc2"><div className="sl">충동 회피</div><div className="sv" style={{color:'var(--grn)'}}>{st.ac}회</div></div>
+<div className="sc2"><div className="sl">방어 금액</div><div className="sv" style={{color:'var(--amb)'}}>{st.ast>=1e4?`${Math.round(st.ast/1e4)}만`:st.ast.toLocaleString()}</div></div>
+<div className="sc2"><div className="sl">스트릭</div><div className="sv" style={{color:'var(--blu)'}}>{st.as}일</div></div>
+</div>
+{fg&&<div className="fc"><div className="fh"><span className="ft">FEAR & GREED INDEX</span><button className="fr" onClick={ffg} disabled={fgl}>{fgl?'⏳':'↻'}</button></div>
+<div className="fv m" style={{color:fr?.c}}>{fg.v}</div><div className="fl" style={{color:fr?.c}}>{fr?.l}</div>
+<div className="fb"><div className="ff" style={{width:`${fg.v}%`,background:'linear-gradient(90deg,var(--red),var(--amb),var(--grn),var(--pur))'}}/></div>
+<div className="fw">{fr?.w}</div></div>}
+<div className="lm"><h3>기억하라</h3><div className="la">-$7,000</div><div className="ls">+ 이후 수천만원의 청산. WAVE 없는 매매는 인정하지 않는다.</div></div>
+<button className="cb cp" onClick={hImp}>지금 매매하고 싶다</button>
+{st.cu&&Date.now()<st.cu&&<div style={{padding:'9px 12px',background:'var(--rg)',border:'1px solid rgba(239,68,68,.2)',borderRadius:11,marginBottom:6,textAlign:'center'}}><div style={{fontSize:10,color:'var(--red)',fontWeight:700}}>🔒 쿨다운</div><div className="m" style={{fontSize:15,color:'var(--red)',fontWeight:800,marginTop:2}}>{ft(st.cu-Date.now())}</div></div>}
+<div className="lt"><button className="lb" onClick={()=>slo(!lo)}>{lo?'▲ 닫기':'▼ 로그'} ({st.log.length})</button>
+{lo&&<div className="lp">{st.log.slice(-30).reverse().map((l,i)=><div key={i} className="le"><span className="lti">{new Date(l.t).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})}</span><span className="lac">{l.a}</span><span className="lde">{l.d}</span></div>)}{st.log.length===0&&<div style={{padding:8,fontSize:10,color:'var(--txm)'}}>로그 없음</div>}</div>}
+</div>
+<div className="vr">WAVE v2.0 — Survival OS</div>
+</div>)}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>
